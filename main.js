@@ -1,12 +1,20 @@
-const openPopUp = document.getElementById('open_pop_up');
-const closePopUp = document.getElementById('pop_up_close');
-const popUp = document.getElementById('pop_up');
-openPopUp.addEventListener('click',function(e){
-    e.preventDefault();
-    popUp.classList.add('active');
-})
-closePopUp.addEventListener('click', () => {
-    popUp.classList.remove('active');
-})
-
-
+$(function(){
+    $(".ajaxForm").submit(function(e){
+        e.preventDefault();
+        var href = $(this).attr("action");
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: href,
+            data: $(this).serialize(),
+            success: function(response){
+                if(response.status == "success"){
+                    alert("We received your submission, thank you!");
+                    document.getElementById("form").reset();
+                }else{
+                    alert("An error occured.");
+                }
+            }
+        });
+    });
+});

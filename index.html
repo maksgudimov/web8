@@ -2,36 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web8</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="main.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <title>Web8</title>
 </head>
-
 <body>
-    <div class="button">
-        <a href="#" id="open_pop_up">Оставить заявку</a>
-    </div>
-
-    <div class="pop_up" id="pop_up">
-        <div class="pop_up_container">
-            <div class="pop_up_body" id="pop_up_body">
-                <p> Заполните форму </p>
-                <form action="" >
-                     <input type="text" placeholder ="Имя">   <!--Имя-->
-                    <input type="text" placeholder ="Адрес электронной почты"><!--Мейл-->
-                    <input type="text" placeholder ="Комментарий"><!--Сообщение-->
-                    <input type="checkbox" checked="checked" name="check-1" />
-                        Согласен(а) с обработкой персональных данных 
-                    <button>Сделать заказ!</button>
+<a href="#popup" class="button__popup">Форма</a>
+<div id="popup" class="popup" >
+    <div class="popup_body">
+        <div class="popup_content">
+            <div class="form">
+                <form class="ajaxForm" action="https://formcarry.com/s/ZlcHYK7Yk03" method="POST" accept-charset="UTF-8" id="form">
+                    <a href="#" class="popup_close">&#10006</a>
+                    <h1 class="form_title">Отправка данных на почту</h1>
+                    <div class="form_item">
+                        <label for="formName" class="form_label">Имя*:</label>
+                        <input id="formName" type="text" name="name" class="form_input_req" required>
+                    </div>
+                    <div class="form_item">
+                        <label for="formEmail" class="form_label">E-mail*:</label>
+                        <input id="formEmail" type="email" name="email" class="form_input_req_email" required>
+                    </div>
+                    <div class="form_item">
+                        <label for="formMessage" class="form_label">Сообщение:</label>
+                        <textarea name="message" id="formMessage" class="form_input"></textarea>
+                    </div>
+                    <div class="form_item">
+                        <div class="checkbox">
+                            <input id="formAgreement" type="checkbox" name="agreement" class="checkbox_input_req" required>
+                            <label for="formAgreement" class="checkbox_label"><span>Я даю своё согласие на обработку персональных данных в соответствии с <a href="">Условием</a>*</span></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="form_button">Отправить</button>
                 </form>
-                <div class="pop_up_close" id="pop_up_close">&#10006</div>
             </div>
         </div>
     </div>
-
-
-    <script src="main.js"></script>
+</div>
 </body>
-
 </html>
